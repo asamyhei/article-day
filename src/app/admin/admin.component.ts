@@ -11,37 +11,19 @@ export class AdminComponent implements OnInit {
 
   form: FormGroup;
   config = {
-    height: '200px',
-    uploadImagePath: '/api/upload'
+    height: '50%',
+    uploadImagePath: 'http://localhost:8080/api/image'
   };
-  editorDisabled = false;
-
-  constructor(private sanitizer: DomSanitizer) {
+  constructor() {
     this.form = new FormGroup({
       html: new FormControl()
     });
-  }
-
-  get sanitizedHtml() {
-    return this.sanitizer.bypassSecurityTrustHtml(this.form.get('html').value);
-  }
-
-  enableEditor() {
-    this.editorDisabled = false;
-  }
-
-  disableEditor() {
-    this.editorDisabled = true;
-  }
-
-  onBlur() {
-    console.log('Blur');
   }
 
   ngOnInit(): void {
   }
 
   log() {
-    console.log(this.form.getRawValue());
+    console.log(this.form.get('html').value);
   }
 }
