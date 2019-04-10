@@ -7,7 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import {NgxSummernoteModule} from 'ngx-summernote';
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ArticleService} from './services/article.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     NgxSummernoteModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

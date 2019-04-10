@@ -9,7 +9,6 @@ const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 
-
 const upload = multer({
   dest: (__dirname + "/src/assets"),
 });
@@ -33,18 +32,16 @@ app.post("/api/image", upload.single("image" /* name attribute of <file> element
       if (err) {
         return handleError(err, res);
       }
-
       res.send(JSON.stringify({path: path.join("/assets/", req.file.originalname)}));
     });
-
   },
 );
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + "/dist/article-day"));
+app.use(express.static(__dirname + "/dist/articles-day"));
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname + "/dist/article-day/index.html"));
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname + "/dist/articles-day/index.html"));
 });
 
 // Start the app by listening on the default Heroku port

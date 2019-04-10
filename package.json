@@ -36,6 +36,7 @@
     "ngx-summernote": "^0.6.2",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
+    "serve-index": "^1.9.1",
     "summernote": "^0.8.11",
     "tslib": "^1.9.0",
     "typescript": "~3.2.2",

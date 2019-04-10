@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ArticleService} from '../services/article.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  articles: string[] = [];
 
-  constructor() { }
+  constructor(private articleService: ArticleService) {
+    console.log(this.articleService.articles);
+  }
 
   ngOnInit() {
+    this.articles = this.articleService.articles;
   }
 
 }

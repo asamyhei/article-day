@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ArticleService} from '../services/article.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -10,11 +11,12 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class AdminComponent implements OnInit {
 
   form: FormGroup;
-  config = {
-    height: '50%',
-    uploadImagePath: 'http://localhost:8080/api/image'
-  };
-  constructor() {
+
+  /*  config = {
+      height: '50%',
+      uploadImagePath: 'http://localhost:8080/api/image'
+    };*/
+  constructor(private articleService: ArticleService, private router: Router) {
     this.form = new FormGroup({
       html: new FormControl()
     });
@@ -23,7 +25,8 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  log() {
-    console.log(this.form.get('html').value);
+  submit() {
+    this.articleService.articles.push(this.form.get('html').value);
+    this.router.navigateByUrl('home');
   }
 }

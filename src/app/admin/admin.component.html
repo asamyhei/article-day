@@ -1,12 +1,16 @@
 <div class="container h-100">
-  <form [formGroup]="form" (ngSubmit)="log()">
-    <div formControlName="html" [ngxSummernote]="config"></div>
-    <button class="btn btn-outline-info" type="submit">dsadsad</button>
-  </form>
-  <h3>HTML</h3>
-  <div [ngxSummernoteView]="form.get('html').value"></div>
-
-  <h3>Code</h3>
-  <pre>{{form.get('html').value}}</pre>
+  <div class="row text-center my-3">
+    <div class="col">
+      <a routerLink="../home">home</a>
+    </div>
+    <div class="col">
+      <a routerLink="../admin">add article</a>
+    </div>
+  </div>
+  <div class="row">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column">
+      <div formControlName="html" [ngxSummernote]="{}"></div>
+      <button class="btn btn-outline-info my-2" type="submit">Ajouter article</button>
+    </form>
+  </div>
 </div>
-
